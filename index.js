@@ -1,7 +1,7 @@
 // criptografar
 // descriptografar
-let inputTexto = document.getElementById("textInput");
-
+let textEncriptar = '';
+let textDescriptar = '';
 function cifraDeCesar(texto, chave, criptografar) {
     // a função recebe esse dados substituindo o valor de cada caractere da string; por o resultado;
     // do callback no caso é o (criptografar)
@@ -15,15 +15,28 @@ function cifraDeCesar(texto, chave, criptografar) {
     });
 }
 
+function lidarComCampoVazio() {
+    let classes = ["svgImg", "outputTitle", "outputText"];
+    for (let i = 0; i < classes.length; i++) {
+        let element = document.getElementsByClassName(classes[i])[0];
+        element.classList.add('active');
+    }
+}
+
 function criptografar() {
-    console.log(inputTexto.value);
+    let inputTexto = document.getElementById("textInput");
+    if (!inputTexto.value) {
+        lidarComCampoVazio()
+    }
+
+    // textEncriptar = inputTexto.value;
+    // if (inputTexto.value) {
+    //     textEncriptar = cifraDeCesar(textEncriptar, 3, true);
+    // }
+    // console.log(textEncriptar);
 }
 
 
-let textoOriginal = "Olá tudo bem?";
-let textoCifrado = cifraDeCesar(textoOriginal, 3, true);
-let textoDecifrado = cifraDeCesar(textoCifrado, 3, false);
-
-console.log("Texto Original:", textoOriginal);
-console.log("Texto Cifrado:", textoCifrado);
-console.log("Texto Decifrado:", textoDecifrado);
+// let textoOriginal = "Olá tudo bem?";
+// let textoCifrado = cifraDeCesar(textoOriginal, 3, true);
+// let textoDecifrado = cifraDeCesar(textoCifrado, 3, false);
